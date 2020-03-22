@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reactive-flux-app
+  namespace: reactive-flux-app
+data:
+  application.yml: |-
+    spring:
+      r2dbc:
+        url: r2dbc:postgres://dbsvc/orders
+        username: hari
+        password: hari

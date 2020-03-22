@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: dbsvc
+subsets:
+  - addresses:
+      - ip: 192.168.1.104
+    ports:
+      - port: 5432

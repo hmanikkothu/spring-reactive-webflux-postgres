@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: reactive-flux-app
+  main:
+    allow-bean-definition-overriding: true #For redefinition of datasource from configMap
+    lazy-initialization: true
+
+#  r2dbc:
+#    url: r2dbc:postgres://192.168.1.104/orders
+#    username: hari
+#    password: hari
+
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 2000
+      config:
+        name: reactive-flux-app
+        namespace: reactive-flux-app
+        sources:
+          # Spring Cloud Kubernetes will lookup a ConfigMap
+          # named c1 in namespace default-namespace
+          - name: reactive-flux-app
+management:
+  endpoint:
+    refresh:
+      enabled: true
+    restart:
+      enabled: true

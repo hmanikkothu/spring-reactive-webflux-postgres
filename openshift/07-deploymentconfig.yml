@@ -1,0 +1,33 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: reactive-flux-app
+    version: latest
+  name: reactive-flux-app
+  namespace: reactive-flux-app
+spec:
+  replicas: 1
+  selector:
+    app: reactive-flux-app
+    deploymentconfig: reactive-flux-app
+  template:
+    metadata:
+      labels:
+        app: reactive-flux-app
+        deploymentconfig: reactive-flux-app
+        version: latest
+    spec:
+      containers:
+        - image: docker.io/hmanikkothu/reactive-flux-app
+          imagePullPolicy: Always
+          name: reactive-flux-app
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: "config-reader"

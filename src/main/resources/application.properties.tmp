@@ -1,0 +1,4 @@
+spring.main.lazy-initialization=true
+spring.r2dbc.url=r2dbc:postgres://localhost/orders
+spring.r2dbc.username=hari
+spring.r2dbc.password=hari
