@@ -54,3 +54,8 @@ Restart postgres
 ```
 brew services restart postgresql
 ```
+
+## Test URL
+```
+https://reactive-flux-app-reactive-flux-app.192.168.64.5.nip.io/reservations
+```
